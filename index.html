@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hello!</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Memory and Sound Game</h1>
+
+    <p>
+      Welcome to Harrison's Memory and Sound Game! Glad you're here, and hope
+      you have fun!
+    </p>
+    <button id="startBtn" onclick="startGame()">
+      Start
+    </button>
+    <button id="stopBtn" class="hidden" onclick="stopGame()">
+      Stop
+    </button>
+
+    <label id="guessesCounter" class="hidden">
+      &nbsp; Number of Guesses Remaining:
+      <label id="guessesNumber"></label>
+    </label>
+
+    <div id="gameButtonArea">
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fc4.mp3?v=1616441397157"
+        id="audio1"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fd4.mp3?v=1616441416402"
+        id="audio2"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fe4.mp3?v=1616441421119"
+        id="audio3"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Ff4.mp3?v=1616441424982"
+        id="audio4"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fg4.mp3?v=1616441428962"
+        id="audio5"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fa5.mp3?v=1616443593802"
+        id="audio6"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fb5.mp3?v=1616443600383"
+        id="audio7"
+      ></audio>
+      <audio
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2Fc5.mp3?v=1616441444278"
+        id="audio8"
+      ></audio>
+      <button
+        id="button1"
+        onclick="guess(1)"
+        onmousedown="playAudio(1)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button2"
+        onclick="guess(2)"
+        onmousedown="playAudio(2)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button3"
+        onclick="guess(3)"
+        onmousedown="playAudio(3)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button4"
+        onclick="guess(4)"
+        onmousedown="playAudio(4)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button5"
+        onclick="guess(5)"
+        onmousedown="playAudio(5)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button6"
+        onclick="guess(6)"
+        onmousedown="playAudio(6)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button7"
+        onclick="guess(7)"
+        onmousedown="playAudio(7)"
+        onmouseup="stopTone()"
+      ></button>
+      <button
+        id="button8"
+        onclick="guess(8)"
+        onmousedown="playAudio(8)"
+        onmouseup="stopTone()"
+      ></button>
+      <img
+        id="image1"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F8BA4A62D-EE7A-494D-B463-CEEE401E63E0_1_201_a.jpeg?v=1616438257956"
+        alt="The side of Duke Chapel."
+        width="300"
+        height="400"
+        class="hidden"
+      />
+      <img
+        id="image2"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F5DD06178-2E9B-4C77-BB98-FF2441C29E59.jpeg?v=1616439305090"
+        alt="A view of the Windsor Castle from the ground."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+      <img
+        id="image3"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2FF48E66DD-9AFA-41BA-920E-FE85F910E262.jpeg?v=1616439497700"
+        alt="A small waterfall."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+      <img
+        id="image4"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F2A2823EF-0DD7-4987-AE3F-053BD195870B.jpeg?v=1616439709138"
+        alt="A foggy highway."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+      <img
+        id="image5"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F8BA4A62D-EE7A-494D-B463-CEEE401E63E0_1_201_a.jpeg?v=1616438257956"
+        alt="The side of Duke Chapel."
+        width="300"
+        height="400"
+        class="hidden"
+      />
+      <img
+        id="image6"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F5DD06178-2E9B-4C77-BB98-FF2441C29E59.jpeg?v=1616439305090"
+        alt="A view of the Windsor Castle from the ground."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+      <img
+        id="image7"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2FF48E66DD-9AFA-41BA-920E-FE85F910E262.jpeg?v=1616439497700"
+        alt="A small waterfall."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+      <img
+        id="image8"
+        src="https://cdn.glitch.com/ac531609-90a6-4f17-aa5d-6bfa6cd93b31%2F2A2823EF-0DD7-4987-AE3F-053BD195870B.jpeg?v=1616439709138"
+        alt="A foggy highway."
+        width="400"
+        height="300"
+        class="hidden"
+      />
+    </div>
+
+    <p id="instructions">
+      Instructions: after starting the game, remember the pattern the computer
+      plays, and play it back to the computer by clicking the correct buttons to
+      go to the next round. If you mess up three times by clicking the wrong
+      button somewhere in the sequence, you have lost the game. Your objective
+      is to go through all eight rounds of the game!
+    </p>
+  </body>
+</html>
